@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <context-param>
+        <param-name>path</param-name>
+        <param-value>/WEB-INF/product.txt</param-value>
+    </context-param>
+    
+    
+    <servlet>
+        <servlet-name>AddProduct</servlet-name>
+        <servlet-class>business.controller.AddProduct</servlet-class>
+    </servlet>
+    
+    
+    <servlet>
+        <servlet-name>ListProducts</servlet-name>
+        <servlet-class>business.controller.ListProducts</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>UpdateProduct</servlet-name>
+        <servlet-class>business.controller.UpdateProduct</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>DelProduct</servlet-name>
+        <servlet-class>business.controller.DelProduct</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>UpdateProductF</servlet-name>
+        <servlet-class>business.controller.UpdateProductF</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>DeleteProductF</servlet-name>
+        <servlet-class>business.controller.DeleteProductF</servlet-class>
+    </servlet>
+    
+    
+    <servlet-mapping>
+        <servlet-name>AddProduct</servlet-name>
+        <url-pattern>/ProductAdd</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>ListProducts</servlet-name>
+        <url-pattern>/ProductsList</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>UpdateProduct</servlet-name>
+        <url-pattern>/ProductUpdate</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>DelProduct</servlet-name>
+        <url-pattern>/ProductDel</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>UpdateProductF</servlet-name>
+        <url-pattern>/ProductUF</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>DeleteProductF</servlet-name>
+        <url-pattern>/ProductDF</url-pattern>
+    </servlet-mapping>
+    
+    <security-role>
+        <role-name>admin</role-name>
+    </security-role>
+    
+    
+    
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Admin</web-resource-name>
+            <url-pattern>/ProductDF</url-pattern>
+            <url-pattern>/ProductAdd</url-pattern>
+            <url-pattern>/ProductsList</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+        </auth-constraint>
+    </security-constraint>
+    
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Service</web-resource-name>
+            <url-pattern>/ProductUF</url-pattern>
+            <url-pattern>/ProductsList</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>service</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+    
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Customer</web-resource-name>
+            <url-pattern>/ProductsList</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>customer</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+    
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/LoginForm.jsp</form-login-page>
+            <form-error-page>/LoginError.jsp</form-error-page>
+        </form-login-config>
+    </login-config>
+    
+    <session-config>
+        <session-timeout>2</session-timeout>
+    </session-config>
+</web-app>

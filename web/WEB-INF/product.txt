@@ -1,0 +1,3 @@
+1001|Table Cover|5
+1002|Cushion|10
+1003|Yoga Mat|15

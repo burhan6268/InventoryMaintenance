@@ -1,0 +1,82 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 20-Jul-2019, 8:40:13 PM
+    Author     : Burhanuddin
+*/
+
+body
+{
+    background-image: url("VP.jpg");
+    height: 100%; 
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+}
+
+h4
+{
+    color:white;
+    background-color: black;
+}
+
+table.table1
+{
+    background-color: rgba(120,120,120,0.5);
+    color:darkred;
+    font-weight: bold;
+    border:2px solid black;
+}
+table.table1 tr
+{
+    border:1px solid black;
+}
+
+table.table1 th
+{
+    border:1px solid black;
+}
+
+table.table1 td
+{
+    border:2px solid black;
+}
+
+table.table2
+{
+    background-color: rgba(120,120,120,0.5);
+    color:darkred;
+    font-weight: bold;
+    border:2px solid black;
+    font-size: 1.25em;
+    text-align: left;
+}
+
+
+table.table2 td
+{
+    border:2px solid black;
+}
+
+table.table3
+{
+    color:darkred;
+    font-weight: bold;
+    font-size: 1.25em;
+    padding: 15px;
+    text-align: left;
+}
+table.table3 td
+{
+    background-color: rgba(120,125,147,0.5);
+    border:2px solid black;
+}
